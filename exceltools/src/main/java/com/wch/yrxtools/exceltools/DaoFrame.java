@@ -57,7 +57,7 @@ public class DaoFrame extends JFrame implements ActionListener {
 			writeFile();
 			System.out.println("错误的文件");
 			for (String iterable_element : ExcelTools.errFile) {
-				System.out.println(iterable_element);
+				System.out.println("start "+iterable_element);
 			}
  		}
 		this.dispose();
