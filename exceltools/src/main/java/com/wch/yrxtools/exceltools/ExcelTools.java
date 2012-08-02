@@ -204,6 +204,8 @@ public class ExcelTools {
 					// 将生成的单元格添加到工作表中
 					ws.addCell(labelC);
 					ws.addCell(labelC2);
+					ws.addCell(labelC3);
+					ws.addCell(labelC4);
 				} catch (RowsExceededException e) {
 					e.printStackTrace();
 				} catch (WriteException e) {
