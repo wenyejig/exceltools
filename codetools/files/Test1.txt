@@ -1,0 +1,21 @@
+
+	public PmsNetworkClaimD savePmsNetworkClaimD(PmsNetworkClaimD entity);
+	
+	public boolean deletePmsNetworkClaimD(PmsNetworkClaimD entity) throws CdxtAppException;
+	
+	public boolean deletePmsNetworkClaimDByPk(String pk)throws CdxtAppException;
+	
+	public boolean deletePmsNetworkClaimDByPks(Object[] pks)throws CdxtAppException;
+	
+	public List<PmsNetworkClaimD> findDrmAllotDList(PmsNetworkClaimD entity)
+			throws CdxtAppException;
+	public PmsNetworkClaimD getPmsNetworkClaimDById(String id) throws CdxtAppException;
+	
+	public List<PmsNetworkClaimD> findPmsNetworkClaimDListByHql(String hql)
+			throws CdxtAppException;
+
+	public PageEntity findPmsNetworkClaimDPageList(String hqlWhere, int startPage,
+			int pageSize) throws CdxtAppException;
+
+	
+
