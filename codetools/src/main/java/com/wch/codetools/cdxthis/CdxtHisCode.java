@@ -71,16 +71,21 @@ public class CdxtHisCode {
 			a.mkdir();
 			File b = new File(dir + "/imp/");
 			b.mkdir();
-			Writer daoOut = new OutputStreamWriter(new FileOutputStream(dir
-					+ "/api/" + root.get("entityName") + "Dao.java"), "UTF-8");
-			dao.process(root, daoOut);
-			System.out.println(entityName + "Dao Successfull.......");
-			Template daoimp = getCfg().getTemplate("DaoImp.ftl");
-			Writer daoimpOut = new OutputStreamWriter(new FileOutputStream(dir
-					+ "/imp/" + root.get("entityName") + "DaoImp.java"),
-					"UTF-8");
-			daoimp.process(root, daoimpOut);
-			System.out.println(entityName + "DaoImp Successfull.......");
+			File tagartFile = new File(dir + "/api/" + root.get("entityName")
+					+ "Dao.java");
+			if (!tagartFile.exists()) {
+				Writer daoOut = new OutputStreamWriter(new FileOutputStream(
+						tagartFile), "UTF-8");
+				dao.process(root, daoOut);
+				System.out.println(entityName + "Dao Successfull.......");
+				Template daoimp = getCfg().getTemplate("DaoImp.ftl");
+				Writer daoimpOut = new OutputStreamWriter(
+						new FileOutputStream(dir + "/imp/"
+								+ root.get("entityName") + "DaoImp.java"),
+						"UTF-8");
+				daoimp.process(root, daoimpOut);
+				System.out.println(entityName + "DaoImp Successfull.......");
+			}
 		}
 
 	}
@@ -96,7 +101,7 @@ public class CdxtHisCode {
 	 */
 	@SuppressWarnings("unchecked")
 	public void explorService(File _file) throws Exception {
-		String dir = _file.getAbsolutePath(); 
+		String dir = _file.getAbsolutePath();
 		String pack = dir.substring(dir.lastIndexOf("\\") + 1);
 		dir = dir.replaceAll("entity", "service");
 		init();
